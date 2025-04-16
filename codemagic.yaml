@@ -8,7 +8,7 @@ workflows:
       cocoapods: default
       ios_signing:
         distribution_type: app_store  # หรือ development หรือ ad_hoc ตามที่คุณต้องการ
-        bundle_identifier: chomsurangV4  # แก้ไขเป็น bundle identifier ของแอปคุณ
+        bundle_identifier: V4chomsurang  # แก้ไขเป็น bundle identifier ของแอปคุณ
     scripts:
       - name: Install dependencies
         script: flutter pub get
