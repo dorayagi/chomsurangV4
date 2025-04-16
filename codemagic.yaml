@@ -7,15 +7,14 @@ workflows:
       xcode: latest
       cocoapods: default
       ios_signing:
-        distribution_type: app_store  # หรือ development หรือ ad_hoc ตามที่คุณต้องการ
-        bundle_identifier: com.example.chomsurangV4  # ใส่ bundle identifier ของแอปคุณที่นี่
-        # ถ้าใช้การจัดการใบรับรองแบบอัตโนมัติ
-        apple_developer_portal:
-          apple_id: dorayagi@gmail.com  # ตั้งค่าเป็นตัวแปรสภาพแวดล้อม
-          password: ramida2527Aa  # ตั้งค่าเป็นตัวแปรสภาพแวดล้อม หรือใช้ App-specific password
+        distribution_type: app_store  # หรือ development หรือ ad_hoc ตามความต้องการ
+        bundle_identifier: com.example.chomsurangV4  # แก้เป็น bundle ID ของแอปคุณ
     scripts:
       - name: Install dependencies
         script: flutter pub get
+      - name: Set up code signing
+        script: |
+          app-store-connect fetch-signing-files $(BUNDLE_ID) --type IOS_APP_STORE --create
       - name: Build .ipa
         script: flutter build ipa --release --build-name=3.1.0 --build-number=29
     artifacts:
