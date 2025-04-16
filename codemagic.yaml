@@ -18,17 +18,9 @@ workflows:
 
     publishing:
       app_store_connect:
-        auth:
-          type: api_key
-          apple_id: dorayagi@gmail.com
-          api_key_id: G9A8MHP9T6
-          issuer_id: 3cdd00be-36f5-4047-a99e-439c53b66d13
-          api_private_key: |
-            -----BEGIN PRIVATE KEY-----
-            MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgU4HXe5SXBy8FSIRr
-            5Zzmxp6HVS/QTsBn3885qo9liXCgCgYIKoZIzj0DAQehRANCAAS3OxxKNApvvA+A
-            qQwHugkLLMRl+7ijAzS+QvvsRWkHT14znH3wB95eg7MawvzJlecV6zj2lZVJHjjc
-            3o5q2IGi
-            -----END PRIVATE KEY-----
+        apple_id: dorayagi@gmail.com
+        api_key_id: G9A8MHP9T6
+        issuer_id: 3cdd00be-36f5-4047-a99e-439c53b66d13
+        api_private_key: $APP_STORE_CONNECT_PRIVATE_KEY
         submit_to_app_store: true
         distribution_type: app_store
