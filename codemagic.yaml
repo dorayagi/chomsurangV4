@@ -6,15 +6,9 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
-      ios_signing:
-        distribution_type: app_store  # หรือ development หรือ ad_hoc ตามความต้องการ
-        bundle_identifier: chomsurang  # แก้เป็น bundle ID ของแอปคุณ
     scripts:
       - name: Install dependencies
         script: flutter pub get
-      - name: Set up code signing
-        script: |
-          app-store-connect fetch-signing-files $(BUNDLE_ID) --type IOS_APP_STORE --create
       - name: Build .ipa
         script: flutter build ipa --release --build-name=3.1.0 --build-number=29
     artifacts:
