@@ -7,7 +7,7 @@ workflows:
       xcode: latest
       cocoapods: default
       ios_signing:
-        distribution_type: app_store  # หรือ development หรือ ad_hoc ตามที่คุณต้องการ
+        
         bundle_identifier: v4chomsurang  # แก้ไขเป็น bundle identifier ของแอปคุณ
     scripts:
       - name: Install dependencies
