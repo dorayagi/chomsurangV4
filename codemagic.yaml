@@ -23,10 +23,10 @@ workflows:
       app_store_connect:
         api_key: |
           -----BEGIN PRIVATE KEY-----
-          MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgDq32loCMN1jwqE9K
-          qXUOoH/e4sKcNDp9HBVnE+LjdzqgCgYIKoZIzj0DAQehRANCAASTJjgh1ih6AKCH
-          TegvwSQnEx3u0KyaerLPKpGmfOmsEqyBxaXLzKo14MT8Sd8FhFDC7w8Wpc48Z+yS
-          7sxN2Ya6
+          MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgU4HXe5SXBy8FSIRr
+          5Zzmxp6HVS/QTsBn3885qo9liXCgCgYIKoZIzj0DAQehRANCAAS3OxxKNApvvA+A
+          qQwHugkLLMRl+7ijAzS+QvvsRWkHT14znH3wB95eg7MawvzJlecV6zj2lZVJHjjc
+          3o5q2IGi
           -----END PRIVATE KEY-----
-        key_id: WJBX749WAD
+        key_id: G9A8MHP9T6
         issuer_id: 3cdd00be-36f5-4047-a99e-439c53b66d13
