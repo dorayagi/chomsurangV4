@@ -1,28 +1,32 @@
 workflows:
   ios-workflow:
-    name: Build & Upload iOS App
+    name: iOS Build & Upload
+    max_build_duration: 60
     environment:
       flutter: stable
       xcode: latest
-      vars:
-        BUNDLE_ID: "th.ac.chomsurang.app"
+      cocoapods: default
+      ios_signing:
+        distribution_type: app_store  # หรือ development หรือ ad_hoc ตามความต้องการ
+        bundle_identifier: com.example.chomsurangV4  # แก้เป็น bundle ID ของแอปคุณ
     scripts:
-      - name: Get dependencies
+      - name: Install dependencies
         script: flutter pub get
-      - name: Build IPA
+      - name: Set up code signing
+        script: |
+          app-store-connect fetch-signing-files $(BUNDLE_ID) --type IOS_APP_STORE --create
+      - name: Build .ipa
         script: flutter build ipa --release --build-name=3.1.0 --build-number=29
     artifacts:
       - build/ios/ipa/*.ipa
     publishing:
       app_store_connect:
-        auth:
-          apple_id: dorayagi@gmail.com
-          api_key_id: G9A8MHP9T6
-          issuer_id: 3cdd00be-36f5-4047-a99e-439c53b66d13
-          api_private_key: |
-            -----BEGIN PRIVATE KEY-----
-            MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgU4HXe5SXBy8FSIRr
-            5Zzmxp6HVS/QTsBn3885qo9liXCgCgYIKoZIzj0DAQehRANCAAS3OxxKNApvvA+A
-            qQwHugkLLMRl+7ijAzS+QvvsRWkHT14znH3wB95eg7MawvzJlecV6zj2lZVJHjjc
-            3o5q2IGi
-            -----END PRIVATE KEY-----
+        api_key: |
+          -----BEGIN PRIVATE KEY-----
+          MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgDq32loCMN1jwqE9K
+          qXUOoH/e4sKcNDp9HBVnE+LjdzqgCgYIKoZIzj0DAQehRANCAASTJjgh1ih6AKCH
+          TegvwSQnEx3u0KyaerLPKpGmfOmsEqyBxaXLzKo14MT8Sd8FhFDC7w8Wpc48Z+yS
+          7sxN2Ya6
+          -----END PRIVATE KEY-----
+        key_id: WJBX749WAD
+        issuer_id: 3cdd00be-36f5-4047-a99e-439c53b66d13
